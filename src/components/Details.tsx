@@ -92,9 +92,9 @@ export const Details = ({ selectedGame, selectedConsole, setSelectedGame }) => {
             {selectedGame.image && (
               <FSImage
                 mediaPath={selectedGame.mediaPath}
-                link={selectedGame.image[0]}
+                link={selectedGame.image}
                 className="object-fit"
-                key={selectedGame.name[0]}
+                key={selectedGame.name}
               />
             )}
           </div>
@@ -102,9 +102,9 @@ export const Details = ({ selectedGame, selectedConsole, setSelectedGame }) => {
             <div>
               <h2 className="text-lg font-medium text-gray-900">
                 <span className="sr-only">Details for </span>
-                {selectedGame.name[0]}
+                {selectedGame.name}
               </h2>
-              <Stars rating={selectedGame.rating[0] * 5} />
+              <Stars rating={selectedGame.rating * 5} />
             </div>
           </div>
         </div>
@@ -120,19 +120,19 @@ export const Details = ({ selectedGame, selectedConsole, setSelectedGame }) => {
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">Released Date</dt>
               <dd className="whitespace-nowrap text-gray-900">
-                {getDate(selectedGame.releasedate[0])}
+                {getDate(selectedGame.releasedate)}
               </dd>
             </div>
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">Developer</dt>
               <dd className="whitespace-nowrap text-gray-900">
-                {selectedGame.developer[0]}
+                {selectedGame.developer}
               </dd>
             </div>
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">Publisher</dt>
               <dd className="whitespace-nowrap text-gray-900">
-                {selectedGame.publisher[0]}
+                {selectedGame.publisher}
               </dd>
             </div>
           </dl>
@@ -141,9 +141,7 @@ export const Details = ({ selectedGame, selectedConsole, setSelectedGame }) => {
         <div>
           <h3 className="font-medium text-gray-900">Description</h3>
           <div className="mt-2 flex items-center justify-between">
-            <p className="text-sm italic text-gray-500">
-              {selectedGame.desc[0]}
-            </p>
+            <p className="text-sm italic text-gray-500">{selectedGame.desc}</p>
           </div>
         </div>
         {/* <div>

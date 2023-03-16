@@ -3,7 +3,7 @@ export const getOnlyNonRepeatedGames = (games: any) =>
 
 export const getNavItems = (games) =>
   games.map(({ data }) => ({
-    console: data.provider[0].System[0],
+    console: data.provider.System,
   }));
 
 export const getDate = (date) => {

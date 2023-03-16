@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use std::{fs, path::PathBuf};
-use xml2json_rs::JsonBuilder;
+use xml2json_rs::{JsonBuilder, JsonConfig};
 
 use walkdir::WalkDir;
 
@@ -9,7 +9,7 @@ use walkdir::WalkDir;
 #[tauri::command]
 fn get_game_lists() -> Vec<(PathBuf, String)> {
     let mut lists: Vec<(PathBuf, String)> = vec![];
-    let json_builder = JsonBuilder::default();
+    let json_builder = JsonConfig::new().explicit_array(false).finalize();
 
     for entry in WalkDir::new("/media/saravieira/Padawan/Roms/")
         .follow_links(true)
@@ -21,7 +21,6 @@ fn get_game_lists() -> Vec<(PathBuf, String)> {
             let path = entry.path();
 
             let contents = fs::read_to_string(entry.path()).unwrap();
-
             let json = json_builder.build_string_from_xml(&contents).unwrap();
             let media_link = fs::canonicalize(&path).unwrap();
 

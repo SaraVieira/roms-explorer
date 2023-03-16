@@ -1,4 +1,5 @@
 import { invoke } from "@tauri-apps/api";
+import Fuse from "fuse.js";
 import { useEffect, useState } from "react";
 
 export const useLoadRoms = () => {
@@ -13,8 +14,16 @@ export const useLoadRoms = () => {
       mediaPath: path,
       data: JSON.parse(data).gameList,
     }));
+    const options = {
+      keys: ["data.game.name"],
+    };
+
+    const fuse = new Fuse(roms, options);
+
+    const result = fuse.search("mar", { limit: 50 });
+    console.log(result);
     setRoms(allRoms);
-    setSelectedConsole(allRoms[0].data.provider[0].System[0]);
+    setSelectedConsole(allRoms[0].data.provider.System);
   };
 
   useEffect(() => {

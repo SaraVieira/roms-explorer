@@ -1,0 +1,13 @@
+# These are supported funding model platforms
+
+github: ["test"]
+patreon: "test"
+open_collective: "test"
+ko_fi: "test"
+tidelift: "test"
+community_bridge: "test"
+liberapay: "test"
+issuehunt: "test"
+otechie: "test"
+lfx_crowdfunding: "test"
+custom: ["https://example.com"]

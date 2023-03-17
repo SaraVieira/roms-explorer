@@ -12,8 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@tauri-apps/api": "^1.2.0",
     "clsx": "^1.2.1",
+    "flowbite": "^1.6.4",
     "framer-motion": "^10.3.1",
     "fuse.js": "^6.6.2",
     "postcss": "^8.4.21",

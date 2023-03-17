@@ -1,6 +1,5 @@
 import Layout from "./components/Layout";
 
-import { MobileNav } from "./components/MobileNav";
 import { Details } from "./components/Details";
 import { Roms } from "./components/Roms";
 import { SideNav } from "./components/SideNav";
@@ -40,16 +39,6 @@ function App() {
         <Details
           setSelectedGame={setSelectedGame}
           selectedGame={selectedGame}
-          selectedConsole={selectedConsole}
-        />
-      }
-      MobileNav={
-        <MobileNav
-          roms={roms}
-          setSelectedConsole={(console) => {
-            setSelectedConsole(console);
-            setSelectedGame(null);
-          }}
           selectedConsole={selectedConsole}
         />
       }

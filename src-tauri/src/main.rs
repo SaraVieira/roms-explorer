@@ -7,11 +7,11 @@ use walkdir::WalkDir;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn get_game_lists() -> Vec<(PathBuf, String)> {
+fn get_game_lists(path: String) -> Vec<(PathBuf, String)> {
     let mut lists: Vec<(PathBuf, String)> = vec![];
     let json_builder = JsonConfig::new().explicit_array(false).finalize();
 
-    for entry in WalkDir::new("/media/saravieira/Padawan/Roms/")
+    for entry in WalkDir::new(path)
         .follow_links(true)
         .into_iter()
         .filter_map(|e| e.ok())
@@ -33,6 +33,7 @@ fn get_game_lists() -> Vec<(PathBuf, String)> {
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_store::Builder::default().build())
         .invoke_handler(tauri::generate_handler![get_game_lists])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -7,8 +7,8 @@ export const useLoadRoms = () => {
   const [selectedConsole, setSelectedConsole] = useState();
   const [selectedGame, setSelectedGame] = useState(null);
 
-  const getRoms = async () => {
-    const lists: string[] = await invoke("get_game_lists");
+  const getRoms = async (path) => {
+    const lists: string[] = await invoke("get_game_lists", { path: path });
     const allRoms = lists.map(([path, data]) => ({
       path,
       mediaPath: path,
@@ -23,12 +23,8 @@ export const useLoadRoms = () => {
     const result = fuse.search("mar", { limit: 50 });
     console.log(result);
     setRoms(allRoms);
-    setSelectedConsole(allRoms[0].data.provider.System);
+    setSelectedConsole((allRoms || [])[0]?.data?.provider?.System);
   };
-
-  useEffect(() => {
-    getRoms();
-  }, []);
 
   return {
     selectedConsole,
@@ -36,5 +32,6 @@ export const useLoadRoms = () => {
     setSelectedConsole,
     setSelectedGame,
     roms,
+    getRoms,
   };
 };

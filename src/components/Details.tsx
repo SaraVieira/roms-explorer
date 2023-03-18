@@ -114,7 +114,7 @@ export const Details = ({ selectedGame, selectedConsole, setSelectedGame }) => {
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">Genre</dt>
               <dd className="whitespace-nowrap text-gray-900">
-                {selectedGame.genre.join(",")}
+                {selectedGame.genre}
               </dd>
             </div>
             <div className="flex justify-between py-3 text-sm font-medium">

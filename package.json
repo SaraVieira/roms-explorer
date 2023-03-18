@@ -18,7 +18,8 @@
     "fuse.js": "^6.6.2",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tauri-plugin-store-api": "https://github.com/tauri-apps/tauri-plugin-store"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

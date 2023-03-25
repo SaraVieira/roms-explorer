@@ -1,1 +1,7 @@
-{"name":"roms-explorer","repository":"https://github.com/SaraVieira/roms-explorer","description":"small app in tauri I use to explore my rom library","homepage":null,"changelog":false}
+{
+  "name": "rs-explorer",
+  "repository": "https://github.com/SaraVieira/roms-explorer",
+  "description": "small app in tauri I use to explore my rom library",
+  "homepage": null,
+  "changelog": false
+}
